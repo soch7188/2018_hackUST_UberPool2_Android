@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">UberPool2</string>
+
+    <string name="title_ride">Ride</string>
+    <string name="title_schedule">Schedule</string>
+    <string name="title_history">History</string>
+
+    <string name="hello_ride_fragment">Hello ride fragment</string>
+    <string name="hello_schedule_fragment">Hello schedule fragment</string>
+    <string name="hello_history_fragment">Hello history fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
