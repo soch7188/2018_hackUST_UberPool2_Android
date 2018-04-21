@@ -15,6 +15,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
+
 private var rideFrag: RideFragment? = null
 private var scheduleFrag: ScheduleFragment? = null
 private var historyFrag: HistoryFragment? = null

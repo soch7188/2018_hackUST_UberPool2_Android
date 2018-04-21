@@ -38,6 +38,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:15.0.0'
     implementation 'com.google.firebase:firebase-auth:15.0.0'
 
+    api 'com.github.kittinunf.fuel:fuel-android:1.12.1'
+    api 'com.uber.sdk:rides:0.5.2'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
