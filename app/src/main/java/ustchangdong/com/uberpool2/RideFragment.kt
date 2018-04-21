@@ -88,19 +88,30 @@ class RideFragment : Fragment() {
             val service = UberRidesApi.with(session).build().createService()
             val response = service.getProducts(start_lat, start_long).execute()
             val products = response.body().products
-            val productId_X = products[0].productId
-            val productId_7 = products[2].productId
+            val productIdX = products[0].productId
+            val productId7 = products[2].productId
 
             val prices = service.getPriceEstimates(start_lat, start_long, end_lat, end_long).execute().body()
 
 
             // products[0123], prices[0123][estimate, high_estimate, low_estimate, surge_multiplier, distance, display_name, currency_code]
 
-            val pickupTimeEst_X = service.getPickupTimeEstimate(start_lat, start_long, productId_X).execute()
-            val pickTimeX = (pickupTimeEst_X.body().times[0].estimate!!/60).toString() + " Minutes"
-            val pickupTimeEst_7 = service.getPickupTimeEstimate(start_lat, start_long, productId_7).execute()
-            val pickTime7 = (pickupTimeEst_7.body().times[0].estimate!!/60).toString() + " Minutes"
+            val pickupTimeEstX = service.getPickupTimeEstimate(start_lat, start_long, productIdX).execute()
+            var pickTimeX: String ?= null
+            if (pickupTimeEstX.body().times.size == 0){
+                pickTimeX = "No Vehicle Available"
+            } else {
+                pickTimeX = (pickupTimeEstX.body().times[0].estimate!!/60).toString() + " Minutes"
+            }
 
+            val pickupTimeEst7 = service.getPickupTimeEstimate(start_lat, start_long, productId7).execute()
+
+            var pickTime7: String ?= null
+            if (pickupTimeEst7.body().times.size == 0){
+                pickTime7 = "No Vehicle Available"
+            } else {
+                pickTime7 = (pickupTimeEst7.body().times[0].estimate!!/60).toString() + " Minutes"
+            }
 //            val pickupTimeEstVal = pickupTimeEst.body().times[0] // display_name, estimate, product_id
 
             mActivity!!.runOnUiThread(Runnable {
